@@ -44,8 +44,8 @@ export default {
             this.$http.post("http://localhost:3000/users", this.user).then(
                 function(res){
                     console.log(res);
-                    // 增加成功后跳转列表页面
-                    this.$router.push({path:"/users"});
+                    // 增加成功后跳转列表页面, 给list页面传入alert参数
+                    this.$router.push({path:"/users", query:{alert: "添加成功!"}});
                 },
                 function(){
                     console.log("添加用户失败");

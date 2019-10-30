@@ -1,9 +1,9 @@
 <template>
   <div class="add container">
-    <h1 class="page-header">修改用户</h1>
+    <h1 class="page-header">用户详情</h1>
+    <router-link to="/users" class="btn btn-default">返回</router-link>
     <div class="row clearfix">
       <div class="col-md-12 column">
-        <form role="form" v-on:submit="updateUser">
           <div class="form-group">
             <label for="userid">id</label>
             <input type="text" class="form-control" id="userid" v-model="user.id" />
@@ -38,9 +38,6 @@
               v-model="user.password"
             />
           </div>
-          <!-- form制定submit -->
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
       </div>
     </div>
   </div>
@@ -56,21 +53,6 @@ export default {
     };
   },
   methods: {
-    // 传入e, 阻止默认事件
-    updateUser(e) {
-      // console.log(123);
-      //根据id进行put更新
-      this.$http.put("http://localhost:3000/users/" + this.$route.params.id, this.user).then(
-        function(res) {
-          console.log(res);
-          this.$router.push({ path: "/users", query: { alert: "修改成功" } });
-        },
-        function() {
-          console.log("修改用户失败");
-        }
-      );
-      e.preventDefault();
-    },
     fetchUserById(id) {
       this.$http.get("http://localhost:3000/users/" + id).then(
         function(res) {

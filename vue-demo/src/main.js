@@ -11,6 +11,7 @@ import UsersList from './components/users/List'
 import VueResource from 'vue-resource'
 import UserAdd from './components/users/Add'
 import UserUpdate from './components/users/Update'
+import UserDetail from './components/users/Detail'
 
 
 Vue.config.productionTip = false
@@ -27,7 +28,8 @@ const router = new VueRouter({
     {path:'/about', component: About},
     {path:'/users', component: UsersList},
     {path:'/useradd', component: UserAdd},
-    {path:'/userupdate', component: UserUpdate}
+    {path:'/userupdate/:id', component: UserUpdate},
+    {path:'/userdetail/:id', component: UserDetail}
   ]
 })
 
