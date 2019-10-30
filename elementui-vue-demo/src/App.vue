@@ -1,23 +1,26 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <nav-header></nav-header>
+    <nav-navbar></nav-navbar>
+    <router-view />
+    <!-- <nav-footer></nav-footer> -->
   </div>
 </template>
 
 <script>
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 export default {
-  name: 'App'
-}
+  name: "app",
+  data() {
+    return {};
+  },
+  components: {
+    //局部注册组件这里，可能会定义多个组件，所以component这个单词加上“s”
+    "nav-header": Header,
+    "nav-footer": Footer,
+    "nav-navbar": Navbar
+  }
+};
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
